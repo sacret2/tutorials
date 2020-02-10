@@ -1,0 +1,8 @@
+<beans>
+    <jaxws:endpoint xmlns:helloworld="http://tutorialspoint.com/"
+                    id="helloHTTP"
+                    address="http://localhost:9090/HelloServerPort"
+                    serviceName="helloworld:HelloServiceService"
+                    endpointName="helloworld:HelloServicePort">
+    </jaxws:endpoint>
+</beans>

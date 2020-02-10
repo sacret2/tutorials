@@ -1,0 +1,15 @@
+com\tutorialspoint\helloworld\HelloWorldImpl.class
+com\tutorialspoint\helloworld\Client.class
+com\tutorialspoint\pojo\HelloWorld.class
+com\tutorialspoint\helloworld\Greetings.class
+com\tutorialspoint\jaxws\Server.class
+com\tutorialspoint\pojo\HelloClient.class
+com\tutorialspoint\helloworld\package-info.class
+com\tutorialspoint\helloworld\ObjectFactory.class
+com\tutorialspoint\jaxws\Client.class
+com\tutorialspoint\helloworld\Server.class
+com\tutorialspoint\pojo\HelloServer.class
+com\tutorialspoint\helloworld\HelloWorldPortType.class
+com\tutorialspoint\helloworld\HelloWorldService.class
+com\tutorialspoint\pojo\HelloWorldImpl.class
+com\tutorialspoint\helloworld\GreetingsResponse.class
