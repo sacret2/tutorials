@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://trainings.ws.marcin.com/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	name="CustomerCarsService" targetNamespace="http://trainings.ws.marcin.com/">
+	<wsdl:types>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:tns="http://trainings.ws.marcin.com/" elementFormDefault="unqualified"
+		targetNamespace="http://trainings.ws.marcin.com/" version="1.0">
+
+		<xs:complexType name="car">
+			<xs:sequence>
+				<xs:element name="id" type="xs:integer" />
+				<xs:element maxOccurs="unbounded" name="model" type="tns:model" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="model">
+			<xs:sequence>
+				<xs:element minOccurs="0" name="id" type="xs:string" />
+				<xs:element minOccurs="0" name="name" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:element name="getCarsRequest" type="tns:getCarsRequest" />
+
+		<xs:element name="getCarsResponse" type="tns:getCarsResponse" />
+
+		<xs:complexType name="getCarsRequest">
+			<xs:sequence>
+				<xs:element minOccurs="0" name="customerId" type="xs:integer" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="getCarsResponse">
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="car"
+					type="tns:car" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:element name="createCarsRequest" type="tns:createCarsRequest" />
+
+		<xs:element name="createCarsResponse" type="tns:createCarsResponse" />
+
+		<xs:complexType name="createCarsRequest">
+			<xs:sequence>
+				<xs:element name="customerId" type="xs:integer" />
+				<xs:element name="car" type="tns:car" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="createCarsResponse">
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="getCarsRequest">
+		<wsdl:part element="tns:getCarsRequest" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getCarsResponse">
+		<wsdl:part element="tns:getCarsResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="createCarsRequest">
+		<wsdl:part element="tns:createCarsRequest" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="createCarsResponse">
+		<wsdl:part element="tns:createCarsResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="CustomerCarsPortType">
+		<wsdl:operation name="getCars">
+			<wsdl:input message="tns:getCarsRequest" name="getCarsRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:getCarsResponse" name="getCarsResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="createCars">
+			<wsdl:input message="tns:createCarsRequest" name="createCarsRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:createCarsResponse" name="createCarsResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="CustomerCarsServiceSoapBinding"
+		type="tns:CustomerCarsPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getCars">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getCarsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getCarsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="createCars">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="createCarsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="createCarsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CustomerCarsService">
+		<wsdl:port binding="tns:CustomerCarsServiceSoapBinding"
+			name="CustomerCarsPort">
+			<soap:address
+				location="http://localhost:8080/wsdlfirstws/services/customerCarsService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

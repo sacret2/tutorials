@@ -66,9 +66,24 @@
 							<goal>wsdl2java</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>generate-sourcesSthMine</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated/sthmine</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/SthMine.wsdl</wsdl>
+									<wsdlLocation>classpath:wsdl/SthMine.wsdl</wsdlLocation>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
