@@ -70,7 +70,7 @@
 						<id>generate-sourcesSthMine</id>
 						<phase>generate-sources</phase>
 						<configuration>
-							<sourceRoot>${project.build.directory}/generated/sthmine</sourceRoot>
+							<sourceRoot>${project.buiCld.directory}/generated/sthmine</sourceRoot>
 							<wsdlOptions>
 								<wsdlOption>
 									<wsdl>${basedir}/src/main/resources/SthMine.wsdl</wsdl>
