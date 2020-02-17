@@ -2,6 +2,9 @@ package com.bharath.ws.soap.dto;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name="CreditCardInfo")
 public class CreditCardInfo {
 
 	String cardNumber;
