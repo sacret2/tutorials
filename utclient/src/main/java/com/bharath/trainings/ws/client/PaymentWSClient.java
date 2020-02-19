@@ -30,8 +30,8 @@ public class PaymentWSClient {
 			
 			Map<String, Object> props = new HashMap<>();
 			props.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
-			props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
 			props.put(WSHandlerConstants.USER,  "cxf");
+			props.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);			
 			props.put(WSHandlerConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
 			WSS4JOutInterceptor outIn = new WSS4JOutInterceptor(props);
 			endpoint.getOutInterceptors().add(outIn);
