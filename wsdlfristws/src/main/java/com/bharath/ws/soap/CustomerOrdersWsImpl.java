@@ -21,16 +21,6 @@ import com.bharath.ws.trainings.Product;
 @Features(features="org.apache.cxf.feature.LoggingFeature")
 public class CustomerOrdersWsImpl implements CustomerOrdersPortType {
 
-	
-
-	@Override
-	public DeleteOrdersResponse deleteOrders(DeleteOrdersRequest request) {
-		customerOrders.get(request.getCustomerId()).remove(request.getOrder());
-		DeleteOrdersResponse delresp = new DeleteOrdersResponse();
-		delresp.setResult(true);
-		return delresp;
-	}
-
 	Map<BigInteger, List<Order>> customerOrders = new HashMap<>();
 	int currentId;
 
@@ -65,6 +55,14 @@ public class CustomerOrdersWsImpl implements CustomerOrdersPortType {
 		return response;
 	}
 
+	@Override
+	public DeleteOrdersResponse deleteOrders(DeleteOrdersRequest request) {
+		customerOrders.get(request.getCustomerId()).remove(request.getOrder());
+		DeleteOrdersResponse delresp = new DeleteOrdersResponse();
+		delresp.setResult(true);
+		return delresp;
+	}
+	
 	@Override
 	public CreateOrdersResponse createOrders(CreateOrdersRequest request) {
 		BigInteger customerId = request.getCustomerId();

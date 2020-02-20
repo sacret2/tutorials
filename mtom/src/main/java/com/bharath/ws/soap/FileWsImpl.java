@@ -9,6 +9,9 @@ import java.io.OutputStream;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 
+import org.apache.cxf.feature.Features;
+
+@Features(features="org.apache.cxf.feature.LoggingFeature")
 public class FileWsImpl implements FileWs {
 
 	InputStream inputStream = null;
@@ -16,9 +19,14 @@ public class FileWsImpl implements FileWs {
 
 	@Override
 	public void upload(DataHandler attachment) {
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		
 		try {
-			InputStream inputStream = attachment.getInputStream();
-			OutputStream outputStream = new FileOutputStream(new File("C:\\Marcin\\App\\tutorials\\Files\\test.jpg"));
+			inputStream = attachment.getInputStream();
+			
+			outputStream = new FileOutputStream(new File(
+					new File("").getAbsolutePath() + "\\Files\\test.jpg"));
 			int bytesReadNb; 
 			
 			byte[] buf = new byte[100000];
@@ -29,7 +37,6 @@ public class FileWsImpl implements FileWs {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			int cos;
 		}
 		finally {
 			try {
@@ -43,7 +50,8 @@ public class FileWsImpl implements FileWs {
 
 	@Override
 	public DataHandler download() {
-		return new DataHandler(new FileDataSource(new File("C:\\Marcin\\App\\tutorials\\Files\\test.jpg")));
+		return new DataHandler(new FileDataSource(new File(
+				new File("").getAbsolutePath() + "\\Files\\test.jpg")));
 	}
 
 }
