@@ -1,5 +1,6 @@
 package com.bharath.ws.soap;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -61,8 +62,10 @@ public class SiteHandler implements SOAPHandler<SOAPMessageContext> {
 
 	@Override
 	public Set<QName> getHeaders() {
+		Set<QName> qnames = new HashSet<>();
+		qnames.add(new QName("SiteName"));
 		System.out.println("get headers");
-		return null;
+		return qnames;
 	}
 
 }
